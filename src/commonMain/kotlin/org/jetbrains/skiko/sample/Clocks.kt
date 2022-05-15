@@ -33,7 +33,7 @@ class Clocks(private val layer: SkiaLayer): SkikoView {
         canvas.translate(xOffset.toFloat(), yOffset.toFloat())
         canvas.scale(scale.toFloat(), scale.toFloat())
         canvas.rotate(rotate.toFloat(), (width / 2).toFloat(), (height / 2).toFloat())
-        if (false) {
+        if (true) {
             val watchFill = Paint().apply { color = 0xFFFFFFFF.toInt() }
             val watchStroke = Paint().apply {
                 color = 0xFF000000.toInt()

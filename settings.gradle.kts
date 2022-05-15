@@ -6,12 +6,12 @@ pluginManagement {
     }
     
 }
-rootProject.name = "SkiaMultiplatformSample"
+rootProject.name = "SkiaMultiplatformShader"
 
-if (System.getenv("SKIKO_COMPOSITE_BUILD") == "1") {
-    includeBuild("../../skiko") {
-        dependencySubstitution {
-            substitute(module("org.jetbrains.skiko:skiko")).using(project(":"))
-        }
-    }
-}
+//if (System.getenv("SKIKO_COMPOSITE_BUILD") == "1") {
+//    includeBuild("../../skiko") {
+//        dependencySubstitution {
+//            substitute(module("org.jetbrains.skiko:skiko")).using(project(":"))
+//        }
+//    }
+//}

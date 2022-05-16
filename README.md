@@ -1,5 +1,8 @@
 # Skiko multiplatform shader
 
+<img width="456" alt="image" src="https://user-images.githubusercontent.com/99798741/168564351-557d1877-c657-4e47-b893-f3b6309769dd.png">
+
+
 ## run iOS with Xcode
  - Works only on Mac with Intel CPU (for now)
  - Install xcodegen

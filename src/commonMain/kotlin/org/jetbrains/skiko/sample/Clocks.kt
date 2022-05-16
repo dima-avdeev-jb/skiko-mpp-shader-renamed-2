@@ -36,14 +36,14 @@ float wind =
    +cos(iTime * 1.23 - uv.y * 3. + uv.x * 3.) * 0.5; // perspective waving
 uv += wind*0.03 * pole;
 float w = 1.0; //length(vec2(dFdx(uv.x), dFdy(uv.y)));
-float isFlag = smoothstep(BORDER,BORDER + .01, 0.5- abs(uv.x-0.5)) * smoothstep(BORDER,BORDER + .01, 0.5- abs(uv.y-0.5));
+float isFlag = smoothstep(BORDER,BORDER + .01, 0.7 - abs(uv.x-0.25)) * smoothstep(BORDER,BORDER + .01, 0.5- abs(uv.y-0.5));
 float shadowThickness = 0.3 * (1. + wind*0.15);
 vec2 shadowUv = (uv-0.5)*1.3 + vec2(-0.15, 0.15);
 
-float shadow = smoothstep(BORDER - shadowThickness, BORDER, 0.5 - abs(shadowUv.x)) *
+float shadow = smoothstep(BORDER - shadowThickness, BORDER, 0.7 - abs(shadowUv.x + 0.27)) *
   smoothstep(BORDER - shadowThickness, BORDER, 0.5 - abs(shadowUv.y));
 float isBlue = (1.0 + sign(0.5 - uv.y))/2.0;
-vec3 col = mix(vec3(1., 0.84, 0.) , vec3(0.,0.34,0.71), isBlue); // Yelow Blue
+vec3 col = mix(vec3(1., 0.84, 0.) , vec3(0.,0.2,0.8), isBlue); // Yelow Blue
 float upaEdge = cos(iTime);// 0.2;
 col = sqrt(col);
 col.rgb *= (0.8 + wind * 0.3 * pole); // shadow

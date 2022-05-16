@@ -7,6 +7,7 @@ import org.jetbrains.skia.paragraph.ParagraphStyle
 import org.jetbrains.skia.paragraph.TextStyle
 import org.jetbrains.skiko.*
 
+
 //Thanks to https://www.shadertoy.com/view/7sBBRV
 val sksl = """
 uniform float2 iResolution;
@@ -22,7 +23,7 @@ vec2 uv = fragCoord/iResolution.xy;
 uv = (uv-0.5) *(1.2 - uv.x*0.05) + vec2(0.5, 0.5);
 vec3 windSeed =  vec3(uv.x * 5.,uv.y * 7., iTime);
 float BORDER = 0.1;
-float pole = smoothstep(BORDER, 1., uv.x);
+float pole = smoothstep(BORDER, 1., uv.x + 0.2);
 pole = 1. - pow(1.-pole,6.);
 float windForce = 0.2 + abs(cos(iTime * 0.2 + pole)  * cos(iTime * 0.345));
 float flagUp = 1.-windForce;

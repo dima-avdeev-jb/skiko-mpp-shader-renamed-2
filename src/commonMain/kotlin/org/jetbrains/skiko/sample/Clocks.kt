@@ -43,7 +43,7 @@ vec2 shadowUv = (uv-0.5)*1.3 + vec2(-0.15, 0.15);
 
 float shadow = smoothstep(BORDER - shadowThickness, BORDER, 0.7 - abs(shadowUv.x + 0.27)) *
   smoothstep(BORDER - shadowThickness, BORDER, 0.5 - abs(shadowUv.y));
-float isBlue = (1.0 + sign(0.5 - uv.y))/2.0;
+float isBlue = smoothstep(-1.0, 1.0, (0.5 - uv.y)*200);
 vec3 col = mix(vec3(1., 0.84, 0.) , vec3(0.,0.2,0.8), isBlue); // Yelow Blue
 float upaEdge = cos(iTime);// 0.2;
 col = sqrt(col);
@@ -77,6 +77,7 @@ class Clocks(private val layer: SkiaLayer): SkikoView {
 
     override fun onRender(canvas: Canvas, width: Int, height: Int, nanoTime: Long) {
         fpsCounter.tick()
+        println("fps: ${fpsCounter.average}")
         val w = minOf(width, height).toFloat()
         val h = minOf(width, height).toFloat()
         shaderBuilder.uniform("iTime", (nanoTime % 1_000_000_000_000) / 1e9f)
@@ -95,8 +96,8 @@ class Clocks(private val layer: SkiaLayer): SkikoView {
         canvas.drawRect(Rect(0f, 0f, w, h), watchFill)
 
         val frames = ParagraphBuilder(style, fontCollection)
-            .pushStyle(TextStyle().setColor(0xffFFffFFL.toInt()).setFontSize(24f))
-            .addText("Peace to Ukraine!   ${fpsCounter.average}")
+            .pushStyle(TextStyle().setColor(0xff99ff99L.toInt()).setFontSize(24f))
+            .addText("Peace to Ukraine!")
             .popStyle()
             .build()
         frames.layout(Float.POSITIVE_INFINITY)

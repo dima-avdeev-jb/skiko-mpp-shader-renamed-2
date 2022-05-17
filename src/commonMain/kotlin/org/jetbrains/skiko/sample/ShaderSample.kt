@@ -61,7 +61,7 @@ return half4(col,1.0);
 val runtimeEffect = RuntimeEffect.makeForShader(sksl)
 val shaderBuilder = RuntimeShaderBuilder(runtimeEffect)
 
-class Clocks(private val layer: SkiaLayer): SkikoView {
+class ShaderSample(private val layer: SkiaLayer): SkikoView {
     private val cursorManager = CursorManager()
     private val fpsCounter = FPSCounter()
     private var xpos = 0.0

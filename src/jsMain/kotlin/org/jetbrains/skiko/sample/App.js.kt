@@ -11,7 +11,7 @@ fun main() {
     onWasmReady {
         val skiaLayer = SkiaLayer()
         onContentScaleChanged = { scale -> println(scale) }
-        val game = Clocks(skiaLayer)
+        val game = ShaderSample(skiaLayer)
         skiaLayer.skikoView = GenericSkikoView(skiaLayer, game)
         val canvas = document.getElementById("SkikoTarget") as HTMLCanvasElement
         canvas.setAttribute("tabindex", "0")

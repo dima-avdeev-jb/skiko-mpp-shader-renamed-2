@@ -298,7 +298,7 @@ rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJ
 
 apple {
     iosApp {
-        productName = "SkikoAppCode"
+        productName = "SkikoShader"
         sceneDelegateClass = "SceneDelegate"
         dependencies {
             implementation(project(":"))
